@@ -1,0 +1,388 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Commissioner', sans-serif;
+  font-size: 1rem;
+}
+
+body, #root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: url('/images/image-hero-desktop.jpg'), rgb(250,250,250);
+  background-position: top center;
+  background-size: contain; 
+  background-repeat: no-repeat;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  margin-top: 15%;
+  gap: 20px;
+  width: 50%;
+}
+
+.header-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.intro-section {
+  width: 100%;
+  position: relative;
+  align-self: center;
+  border-radius: 10px;
+  top: 30%;
+  /* border: solid 1px black; */
+  box-shadow: 1px 1px 5px grey;
+  background-color: white;
+  padding: 50px 30px 50px 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.intro-logo {
+  position: absolute;
+  top: -10%
+}
+
+.intro-title {
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.intro-description {
+  color: hsl(0, 0%, 48%);
+  margin-bottom: 50px;
+}
+
+.intro-btns {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.back-prj-btn {
+  font-weight: 500;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  color: white;
+  background-color: hsl(176, 50%, 47%);
+}
+
+.back-prj-btn:hover {
+  cursor: pointer;
+  background-color: hsl(176, 72%, 28%);
+}
+
+.bookmark-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: fit-content;
+}
+
+.bookmark-btn {
+  font-weight: 500;
+  width: 160px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: hsl(0, 0%, 48%);
+  background-color: rgb(244,244,244);
+  transition: 0.1s;
+}
+
+.bookmark-icon-container {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 50px;
+  background-color: #2F2F2F;
+
+}
+
+.bookmark-icon {
+  color: #B1B1B1
+}
+
+.bookmark-btn.bookmarked {
+  width: 180px;
+  color: hsl(176, 72%, 28%);
+}
+
+.bookmark-icon-container.bookmarked {
+  background-color: hsl(176, 72%, 28%);
+  
+}
+
+.bookmark-icon-container.bookmarked > i {
+  color: white;
+}
+
+.bookmark-container:hover {
+  cursor: pointer;
+}
+
+.bookmark-container:hover .bookmark-icon-container  {
+  background-color: hsl(0, 0%, 48%);
+}
+
+.bookmark-container:hover .bookmark-btn  {
+  color: hsl(0, 0%, 48%);
+}
+
+.stats-section {
+  width: 100%;
+  height: fit-content;
+  background-color: white;
+  border-radius: 10px;
+  padding: 30px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-between;
+  
+}
+
+.stats-title {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.stats-text {
+  color: grey;
+}
+
+.stats-divider {
+  height: 65px;
+  width: 1px;
+  background-color: grey;
+}
+
+progress {
+  width: 100%;
+  height: 10px;
+  /* border: 1px solid black; */
+  border-radius: 100px;
+  overflow: hidden;
+  /* background-color: red; */
+}
+
+progress::-webkit-progress-bar {
+  background-color: rgb(244,244,244);
+}
+progress::-webkit-progress-value {
+  background-color: hsl(176, 50%, 47%);
+}
+
+
+.about-section {
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.back-type {
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.back-header, .back-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.about-title, .back-title {
+  font-weight: 700;
+}
+
+.back-amount {
+  font-size: 1rem;
+  font-weight: 500;
+  color:hsl(176, 50%, 47%)
+}
+
+.back-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.back-left, .pledge-left-amount {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.select-btn {
+  padding: 10px 20px;
+  background-color: hsl(176, 50%, 47%);
+  color: white;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+.select-btn:hover {
+  cursor: pointer;
+  background-color: hsl(176, 72%, 28%);
+}
+
+
+.selection-modal {
+  border: 1px solid black;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center;
+  justify-content: center; */
+  align-self: center;
+  gap: 20px;
+  width: 50%;
+  position: relative;
+  padding: 30px;
+  border-radius: 10px;
+}
+
+.modal-close-icon {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.pledge-container {
+  display: flex;
+  align-items: start;
+  gap: 10px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.pledge-header {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pledge-left {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.radio-pledge:hover {
+  cursor: pointer;
+  border: 1px solid green;
+}
+
+input[type="radio"] {
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  width: 40px;
+  height: 20px;
+  font: inherit;
+  color: currentColor;
+  border: 1px solid green;
+  border-radius: 20px;
+  display: grid;
+  place-content: center;
+}
+
+input[type="radio"]::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em green;
+}
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+@media screen and (max-width: 950px) {
+  body, #root {
+    background: url('/images/image-hero-mobile.jpg'), rgb(250,250,250);
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+  main {
+    width: 100%;
+    padding: 20px;
+    margin-top: 25vh;
+  }
+
+  .bookmark-container  {
+    width: fit-content;
+  }
+
+  .bookmark-icon-container {
+    position: relative;
+  }
+  
+  .bookmark-btn {
+    position: absolute;
+    visibility: hidden;
+  }
+
+  .stats-section, .stats-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .stats-divider {
+    height: 1px;
+    width: 40%;
+    align-self: center;
+    margin-block: 20px;
+  }
+
+  progress {
+    margin-top: 10px;
+  }
+
+  .back-header, .back-footer {
+    flex-direction: column;
+    align-items: start;
+    gap: 5px;
+  }
+}
