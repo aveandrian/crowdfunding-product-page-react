@@ -1,15 +1,31 @@
 import Navbar from './components/Navbar'
 import './App.css'
 import { useState } from 'react'
+import BackType from './components/BackType'
+import BackTypesData from './backTypes.json'
 
 function App() {
   const [isBookmarked, setIsBookmarked] = useState(false)
   const [backedAmount, setBackedAmount] = useState(89914)
   const [totalBackers, setTotalBackers] = useState(5007)
+  const [backTypes, setBackTypes] = useState(BackTypesData)
 
   function toggleBookmark(){
     setIsBookmarked(prev => !prev)
   }
+
+  function handleSelect()
+
+  const backTypesElements = backTypes.map(backType => {
+    return ( <BackType key={backType.id}
+      id={backType.id}
+      name={backType.name}
+      amount={backType.amount}
+      description={backType.description}
+      countLeft={backType.countLeft}
+      />)
+  })
+
   return (
     <>
     <header>
@@ -65,48 +81,8 @@ function App() {
           Featuring artisan craftsmanship, the simplicity of design creates extra desk space below your computer 
           to allow notepads, pens, and USB sticks to be stored under the stand.
         </p>
-        <div className='back-type'>
-          <div className='back-header'>
-            <h1 className='back-title'> Bamboo Stand</h1>
-            <h1 className='back-amount'>Pledge $25 or more</h1>
-          </div>
-          <p className='back-text'>
-            You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and 
-            you'll be added to a special Backer member list.
-          </p>
-          <div className='back-footer'>
-            <div className='back-container'><h1 className='back-left'>101</h1><p>left</p></div>
-            <div className='select-btn'>Select Reward</div>
-          </div>
-        </div>
-        <div className='back-type'>
-          <div className='back-header'>
-            <h1 className='back-title'>Black Edition Stand</h1>
-            <h1 className='back-amount'>Pledge $75 or more</h1>
-          </div>
-          <p className='back-text'>
-            You get a Black Special Edition computer stand and a personal thank you. You'll be added to our Backer 
-            member list. Shipping is included.
-          </p>
-          <div className='back-footer'>
-            <div className='back-container'><h1 className='back-left'>64</h1><p>left</p></div>
-            <div className='select-btn'>Select Reward</div>
-          </div>
-        </div>
-        <div className='back-type'>
-          <div className='back-header'>
-            <h1 className='back-title'>Mahogany Special Edition</h1>
-            <h1 className='back-amount'>Pledge $200 or more</h1>
-          </div>
-          <p className='back-text'>
-            You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You'll be added 
-            to our Backer member list. Shipping is included.
-          </p>
-          <div className='back-footer'>
-          <div className='back-container'><h1 className='back-left'>0</h1><p>left</p></div>
-            <div className='select-btn'>Out of Stock</div>
-          </div>
-        </div>
+
+        {backTypesElements}
       </section>
       
       </main>
