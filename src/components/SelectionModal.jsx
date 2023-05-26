@@ -1,5 +1,10 @@
 import Pledge from "./Pledge"
+import { useState } from "react"
 export default function SelectionModal(props){
+  const [selectedOption, setSelectedOption] = useState(null)
+  function onselectionchange(id){
+    setSelectedOption(id)
+  }
     return (
         <div className="modal-container">
         
@@ -12,6 +17,8 @@ export default function SelectionModal(props){
           name="Pledge with no reward" 
           description="Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email."
           amount={0}
+          checkedId={selectedOption}
+          onSelect={onselectionchange}
           />
 
         <Pledge 
@@ -20,6 +27,8 @@ export default function SelectionModal(props){
           description="You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you'll be added to a special Backer member list."
           amount={25}
           countLeft={101}
+          checkedId={selectedOption}
+          onSelect={onselectionchange}
           />
           
       </div>

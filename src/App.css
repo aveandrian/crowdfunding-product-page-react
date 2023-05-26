@@ -287,10 +287,17 @@ progress::-webkit-progress-value {
 
 .pledge-container {
   display: flex;
-  align-items: start;
-  gap: 10px;
+  flex-direction: column;
   border: 1px solid grey;
   border-radius: 10px;
+  gap: 10px;
+}
+
+.pledge-top-section {
+  display: flex;
+  align-items: start;
+  position: relative;
+  gap: 10px;
   padding: 20px;
 }
 
@@ -319,6 +326,39 @@ progress::-webkit-progress-value {
 
 .pledge-amount {
   color: hsl(176, 50%, 47%);
+}
+
+.pledge-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #B1B1B1;
+}
+
+.pledge-footer {
+  display: flex;
+  padding: 20px;
+  gap: 10px;
+}
+
+.pledge-input-title {
+  margin-right: auto;
+}
+
+.pledge-btn, .pledge-input {
+  padding: 5px;
+  width: 100px;
+  height: 50px;
+  border-radius: 30px;
+}
+
+.pledge-btn {
+  border: none;
+  background-color: hsl(176, 50%, 47%);
+  color: white;
+}
+
+.pledge-input {
+  text-indent: 10px;;
 }
 
 .radio-pledge:hover {
