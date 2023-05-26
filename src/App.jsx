@@ -3,18 +3,22 @@ import './App.css'
 import { useState } from 'react'
 import BackType from './components/BackType'
 import BackTypesData from './backTypes.json'
+import SelectionModal from './components/SelectionModal'
 
 function App() {
   const [isBookmarked, setIsBookmarked] = useState(false)
   const [backedAmount, setBackedAmount] = useState(89914)
   const [totalBackers, setTotalBackers] = useState(5007)
   const [backTypes, setBackTypes] = useState(BackTypesData)
+  const [isModal, setIsModal] = useState(false)
 
   function toggleBookmark(){
     setIsBookmarked(prev => !prev)
   }
 
-  function handleSelect()
+  function toggleModal(){
+    setIsModal(prev => !prev)
+  }
 
   const backTypesElements = backTypes.map(backType => {
     return ( <BackType key={backType.id}
@@ -25,7 +29,7 @@ function App() {
       countLeft={backType.countLeft}
       />)
   })
-
+  console.log(isModal)
   return (
     <>
     <header>
@@ -41,7 +45,7 @@ function App() {
           <h1 className='intro-title'>Mastercraft Bamboo Monitor Riser</h1>
           <p className='intro-description'>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
           <div className='intro-btns'>
-            <div className='back-prj-btn'>Back this project</div>
+            <div className='back-prj-btn' onClick={toggleModal}>Back this project</div>
             <div className={`bookmark-container ${isBookmarked ? "bookmarked" : ""}`} onClick={toggleBookmark}>
               <div className={`bookmark-icon-container ${isBookmarked ? "bookmarked" : ""}`}>
                 <i className="fa-solid fa-bookmark fa-lg bookmark-icon"></i>
@@ -86,40 +90,7 @@ function App() {
       </section>
       
       </main>
-      <div className='selection-modal'>
-          <img className='modal-close-icon' src='/images/icon-close-modal.svg'></img>
-          <h1 className='selection-modal-title'>Back this project</h1>
-          <p className='selection-modal-text'>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
-          <div className='pledge-container'>
-            <input className='radio-pledge' type='radio'  name="pledge"></input>
-            <div className='pledge-content'>
-              <div className='pledge-header'>
-                <h1 className='pledge-title'>Pledge with no reward</h1>
-                <h1 className='pledge-amount'></h1>
-                <div className='pledge-left'></div>
-              </div>
-
-              <p className='pledge-text'>
-                Choose to support us without a reward if you simply believe in our project. As a backer, 
-                you will be signed up to receive product updates via email.
-              </p>
-            </div>
-          </div>
-          <div className='pledge-container'>
-            <input className='radio-pledge' type='radio' name="pledge"></input>
-            <div className='pledge-content'>
-              <div className='pledge-header'>
-                <h1 className='pledge-title'>Bamboo Stand</h1>
-                <h1 className='pledge-amount'>Pledge $25 or more</h1>
-                <div className='pledge-left'><h1 className='pledge-left-amount'>101</h1><p>left</p></div>
-              </div>
-              <p className='pledge-text'>
-                You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
-                you'll be added to a special Backer member list.
-              </p>
-            </div>
-          </div>
-      </div>
+      {isModal && <SelectionModal closeModal={toggleModal}/>}
 
   {/* <!-- Selection modal start --> */}
 
