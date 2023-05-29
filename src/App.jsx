@@ -4,6 +4,7 @@ import { useState } from 'react'
 import BackType from './components/BackType'
 import BackTypesData from './backTypes.json'
 import SelectionModal from './components/SelectionModal'
+import SuccessModal from './components/SuccessModal'
 
 function App() {
   const [isBookmarked, setIsBookmarked] = useState(false)
@@ -11,6 +12,8 @@ function App() {
   const [totalBackers, setTotalBackers] = useState(5007)
   const [backTypes, setBackTypes] = useState(BackTypesData)
   const [isModal, setIsModal] = useState(false)
+  const [selectedOption, setSelectedOption] = useState(null)
+  const [isSuccess, setIsSucess] = useState(false)
 
   function toggleBookmark(){
     setIsBookmarked(prev => !prev)
@@ -18,6 +21,31 @@ function App() {
 
   function toggleModal(){
     setIsModal(prev => !prev)
+    window.scrollTo(0,0)
+  }
+
+  function pledgeFunction(amount, id){
+    console.log("PLEDGECALLDE")
+    console.log(amount)
+    console.log(id)
+    setBackedAmount(prev => prev+amount)
+    setTotalBackers(prev => prev+1)
+    setIsSucess(true)
+    setBackTypes(prevBackTypes => prevBackTypes.map(prevBackType => {
+      return id == prevBackType.id ? {...prevBackType, countLeft: prevBackType.countLeft -1 } : prevBackType
+    }))
+    window.scrollTo(0,0)
+  }
+
+  function closeModal(){
+    setSelectedOption(null)
+    toggleModal()
+  }
+
+  function restart(){
+    setIsSucess(false)
+    setIsModal(false)
+    setSelectedOption(null)
   }
 
   const backTypesElements = backTypes.map(backType => {
@@ -27,18 +55,17 @@ function App() {
       amount={backType.amount}
       description={backType.description}
       countLeft={backType.countLeft}
+      setSelectedOption={setSelectedOption}
+      toggleModal={toggleModal}
       />)
   })
-  console.log(isModal)
+  
   return (
     <>
     <header>
         <Navbar />
     </header>
     <main>
-
-    
-      
       <section className='header-section'>
         <div className='intro-section'>
           <img src='/images/logo-mastercraft.svg' className='intro-logo'></img>
@@ -90,57 +117,14 @@ function App() {
       </section>
       
       </main>
-      {isModal && <SelectionModal closeModal={toggleModal}/>}
-
-  {/* <!-- Selection modal start --> */}
-
-
-      Bamboo Stand
-      Pledge $25 or more
-      You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and
-      you'll be added to a special Backer member list.
-      101 left
-
-      {/* <!-- Selected pledge start --> */}
-          Enter your pledge
-          $25
-          Continue
-      {/* <!-- Selected pledge end --> */}
-
-      Black Edition Stand
-      Pledge $75 or more
-      You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer
-      member list. Shipping is included.
-      64 left
-
-      {/* <!-- Selected pledge start --> */}
-          Enter your pledge
-          $75
-          Continue
-      {/* <!-- Selected pledge end --> */}
-
-      Mahogany Special Edition
-      Pledge $200 or more
-      You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added
-      to our Backer member list. Shipping is included.
-      0 left
-
-      {/* <!-- Selected pledge  start --> */}
-          Enter your pledge
-          $200
-          Continue
-      {/* <!-- Selected pledge end --> */}
-
-  {/* <!-- Selection modal end --> */}
-
-  {/* <!-- Success modal start --> */}
-
-  Thanks for your support!
-  Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
-  an email once our campaign is completed.
-  Got it!
-
-  {/* <!-- Success modal end --> */}
+      {isModal && <SelectionModal 
+      selectedOption={selectedOption} 
+      setSelectedOption={setSelectedOption} 
+      closeModal={closeModal} 
+      backTypes={backTypes}
+      pledgeFunction={pledgeFunction}
+      />}
+      {isSuccess && <SuccessModal onClick={restart}/>}
     </>
   )
 }

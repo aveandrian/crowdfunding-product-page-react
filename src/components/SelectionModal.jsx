@@ -1,13 +1,31 @@
 import Pledge from "./Pledge"
 import { useState } from "react"
+import '../styles/SelectionModal.css'
 export default function SelectionModal(props){
-  const [selectedOption, setSelectedOption] = useState(null)
+  // const [selectedOption, setSelectedOption] = useState(null)
   function onselectionchange(id){
-    setSelectedOption(id)
+    props.setSelectedOption(id)
   }
+
+  console.log("Props selection modal", props)
+
+  const backTypesElements = props.backTypes.map(backType => {
+    return (
+      <Pledge 
+        key={backType.id}
+        id={backType.id}
+        name={backType.name}
+        description={backType.description}
+        amount={backType.amount}
+        checkedId={props.selectedOption}
+        onSelect={onselectionchange}
+        leftAmount={backType.countLeft}
+        pledgeFunction={props.pledgeFunction}
+      />
+    )
+  })
     return (
         <div className="modal-container">
-        
         <div className='selection-modal'>
           <img className='modal-close-icon' src='/images/icon-close-modal.svg' onClick={props.closeModal}></img>
           <h1 className='selection-modal-title'>Back this project</h1>
@@ -17,19 +35,12 @@ export default function SelectionModal(props){
           name="Pledge with no reward" 
           description="Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email."
           amount={0}
-          checkedId={selectedOption}
+          checkedId={props.selectedOption}
           onSelect={onselectionchange}
+          leftAmount={props.leftAmount}
+          pledgeFunction={props.pledgeFunction}
           />
-
-        <Pledge 
-            id={1}
-          name="Bamboo Stand" 
-          description="You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you'll be added to a special Backer member list."
-          amount={25}
-          countLeft={101}
-          checkedId={selectedOption}
-          onSelect={onselectionchange}
-          />
+          {backTypesElements}
           
       </div>
       </div>

@@ -1,0 +1,38 @@
+
+.modal-container {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    width: 100vw;
+    min-height:2000px;
+    height: fit-content;
+    background-color: #2f2f2f5d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.selection-modal {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    gap: 20px;
+    width: 50%;
+    position: relative;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: #fff;
+    position: absolute;
+    top: 20vh;
+  }
+  
+  .modal-close-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  .modal-close-icon:hover {
+    cursor: pointer;
+  }
+  

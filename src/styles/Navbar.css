@@ -22,11 +22,16 @@ nav {
 }
 
 @media screen and (max-width: 950px) {
+    header {
+        overflow: hidden;
+        width: 100vw;
+    }
     nav {
         padding: 20px;
         justify-content: space-between;
         box-shadow:none;
-
+        width: 100vw;
+        overflow-x: hidden;
     }
     .menu-btn {
         visibility: visible;
@@ -34,19 +39,19 @@ nav {
     }
 
     .nav-items {
+        position: absolute;
         gap: 0;
         z-index: 3;
         flex-direction: column;
         width: 90vw;
         background-color: white;
         color: black;
-        position: absolute;
+        transform: translateX(-110vw);
         top: 10vh;
-        left: 105vw;
+        /* right: -105vw; */
         align-self: center;
         justify-self: center;
         border-radius: 10px;
-        
         transition: 0.5s ease-in;
     }
     .nav-divider {
@@ -60,6 +65,7 @@ nav {
 
     .nav-items.opened {
         box-shadow: 2px 2px 100px 2px black,  -1px 0 10px 0 grey;
-        transform: translateX(-100vw)
+        /* transform: translateX(-110vw) */
+        transform: none;
     }
 }

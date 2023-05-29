@@ -6,9 +6,11 @@
   font-size: 1rem;
 }
 
+html,body{ scroll-behavior: smooth}
+
 body, #root {
   min-height: 100vh;
-  width: 100vw;
+  min-width: 100vw;
   overflow-x: hidden;
   display: flex;
   flex-direction: column;
@@ -161,7 +163,7 @@ main {
   background-color: white;
   border-radius: 10px;
   padding: 30px;
-  border: 1px solid black;
+  border: 1px solid grey;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -191,10 +193,8 @@ main {
 progress {
   width: 100%;
   height: 10px;
-  /* border: 1px solid black; */
   border-radius: 100px;
   overflow: hidden;
-  /* background-color: red; */
 }
 
 progress::-webkit-progress-bar {
@@ -203,7 +203,6 @@ progress::-webkit-progress-bar {
 progress::-webkit-progress-value {
   background-color: hsl(176, 50%, 47%);
 }
-
 
 .about-section {
   padding: 20px;
@@ -214,209 +213,10 @@ progress::-webkit-progress-value {
   gap: 30px;
 }
 
-.back-type {
-  padding: 20px;
-  border-radius: 10px;
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+p {
+  color: hsl(0, 0%, 48%);
 }
 
-.back-header, .back-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.about-title, .back-title {
-  font-weight: 700;
-}
-
-.back-amount {
-  font-size: 1rem;
-  font-weight: 500;
-  color:hsl(176, 50%, 47%)
-}
-
-.back-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-}
-
-.back-left, .pledge-left-amount {
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.select-btn {
-  padding: 10px 20px;
-  background-color: hsl(176, 50%, 47%);
-  color: white;
-  border-radius: 20px;
-  font-weight: 500;
-}
-
-.select-btn:hover {
-  cursor: pointer;
-  background-color: hsl(176, 72%, 28%);
-}
-
-
-.selection-modal {
-  border: 1px solid black;
-  display: flex;
-  flex-direction: column;
-  /* align-items: center;
-  justify-content: center; */
-  align-self: center;
-  gap: 20px;
-  width: 50%;
-  position: relative;
-  padding: 30px;
-  border-radius: 10px;
-}
-
-.modal-close-icon {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-}
-
-.pledge-container {
-  display: flex;
-  flex-direction: column;
-  border: 1px solid grey;
-  border-radius: 10px;
-  gap: 10px;
-}
-
-.pledge-top-section {
-  display: flex;
-  align-items: start;
-  position: relative;
-  gap: 10px;
-  padding: 20px;
-}
-
-.pledge-header {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-.pledge-title:hover {
-  cursor: pointer;
-  color: hsl(176, 50%, 47%);
-}
-
-.pledge-title {
-  font-weight: 700;
-}
-
-.pledge-left {
-  margin-left: auto;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.pledge-amount {
-  color: hsl(176, 50%, 47%);
-}
-
-.pledge-divider {
-  width: 100%;
-  height: 1px;
-  background-color: #B1B1B1;
-}
-
-.pledge-footer {
-  display: flex;
-  padding: 20px;
-  gap: 10px;
-}
-
-.pledge-input-title {
-  margin-right: auto;
-}
-
-.pledge-btn, .pledge-input {
-  padding: 5px;
-  width: 100px;
-  height: 50px;
-  border-radius: 30px;
-}
-
-.pledge-btn {
-  border: none;
-  background-color: hsl(176, 50%, 47%);
-  color: white;
-}
-
-.pledge-input {
-  text-indent: 10px;;
-}
-
-.radio-pledge:hover {
-  cursor: pointer;
-  border: 1px solid green;
-}
-
-input[type="radio"] {
-  appearance: none;
-  background-color: #fff;
-  /* margin: 0; */
-  width: 25px;
-  height: 100%;
-  font: inherit;
-  color: currentColor;
-  border: 1px solid grey;
-  border-radius: 20px;
-  display: grid;
-  place-content: center;
-  padding: 5px;
-}
-
-input[type="radio"]:checked {
-  border: 1px solid hsl(176, 50%, 47%);
-}
-
-input[type="radio"]::before {
-  content: "";
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  transform: scale(0);
-  transition: 120ms transform ease-in-out;
-  box-shadow: inset 1em 1em hsl(176, 50%, 47%);
-}
-
-input[type="radio"]:checked::before {
-  transform: scale(1);
-}
-
-.modal-container {
-  position: absolute;
-  z-index: 2;
-  top: 0;
-  width: 100vw;
-  min-height: 2000px;
-  background-color: #2f2f2f5d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.selection-modal {
-  /* z-index:2; */
-  background-color: #fff;
-  position: absolute;
-  top: 20vh;
-}
 
 @media screen and (max-width: 950px) {
   body, #root {

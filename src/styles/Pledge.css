@@ -1,0 +1,144 @@
+
+.pledge-container {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid grey;
+    border-radius: 10px;
+    gap: 10px;
+  }
+  
+  .pledge-top-section {
+    display: flex;
+    align-items: start;
+    position: relative;
+    gap: 10px;
+    padding: 20px;
+  }
+  
+  .pledge-header {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .pledge-title:hover {
+    cursor: pointer;
+    color: hsl(176, 50%, 47%);
+  }
+  
+  .pledge-title {
+    font-weight: 700;
+  }
+  
+  .pledge-left {
+    margin-left: auto;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
+  .pledge-amount {
+    color: hsl(176, 50%, 47%);
+  }
+  
+  .pledge-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #B1B1B1;
+  }
+  
+  .pledge-footer {
+    display: flex;
+    padding: 20px;
+    gap: 10px;
+  }
+  
+  .pledge-input-title {
+    margin-right: auto;
+  }
+  
+  .pledge-btn, .pledge-input {
+    padding: 5px;
+    width: 100px;
+    height: 50px;
+    border-radius: 30px;
+  }
+  
+  .pledge-btn {
+    border: none;
+    background-color: hsl(176, 50%, 47%);
+    color: white;
+  }
+  .pledge-btn:hover {
+    cursor: pointer;
+    background-color: hsl(176, 72%, 28%);
+  }
+  
+  .pledge-btn:disabled {
+    background-color: grey;
+  }
+  
+  .pledge-input {
+    text-indent: 30px;
+  }
+  
+  .radio-pledge:hover {
+    cursor: pointer;
+    border: 1px solid green;
+  }
+  
+  .pledge-input-container {
+    position: relative;
+  }
+  
+  .pledge-input-icon {
+    position: absolute;
+    top: 30%;
+    left: 15%;
+  }
+  
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .error {
+    font-size: 10px;
+    color: red;
+    width: 100px;
+  }
+  
+  input[type="radio"] {
+    appearance: none;
+    background-color: #fff;
+    /* margin: 0; */
+    width: 25px;
+    height: 100%;
+    font: inherit;
+    color: currentColor;
+    border: 1px solid grey;
+    border-radius: 20px;
+    display: grid;
+    place-content: center;
+    padding: 5px;
+  }
+  
+  input[type="radio"]:checked {
+    border: 1px solid hsl(176, 50%, 47%);
+  }
+  
+  input[type="radio"]::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset 1em 1em hsl(176, 50%, 47%);
+  }
+  
+  input[type="radio"]:checked::before {
+    transform: scale(1);
+  }
