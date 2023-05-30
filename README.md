@@ -23,4 +23,4 @@ Users should be able to:
 
 ### Screenshot
 
-![](./screenshot.jpg)
+![image](https://github.com/aveandrian/crowdfunding-product-page-react/assets/13519212/973daeaa-72c5-4de6-8dd6-044752119577)
