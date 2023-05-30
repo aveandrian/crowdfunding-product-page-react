@@ -48,6 +48,7 @@ function App() {
 
   const backTypesElements = backTypes.map(backType => {
     return ( <BackType key={backType.id}
+      backedAmount={backedAmount}
       id={backType.id}
       name={backType.name}
       amount={backType.amount}
@@ -70,7 +71,7 @@ function App() {
           <h1 className='intro-title'>Mastercraft Bamboo Monitor Riser</h1>
           <p className='intro-description'>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
           <div className='intro-btns'>
-            <div className='back-prj-btn' onClick={toggleModal}>Back this project</div>
+            <button className='back-prj-btn' disabled={backedAmount >= 100000} onClick={toggleModal}>Back this project</button>
             <div className={`bookmark-container ${isBookmarked ? "bookmarked" : ""}`} onClick={toggleBookmark}>
               <div className={`bookmark-icon-container ${isBookmarked ? "bookmarked" : ""}`}>
                 <i className="fa-solid fa-bookmark fa-lg bookmark-icon"></i>

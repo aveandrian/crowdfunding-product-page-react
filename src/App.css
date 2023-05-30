@@ -85,11 +85,16 @@ main {
   border-radius: 1.875rem;
   color: white;
   background-color: hsl(176, 50%, 47%);
+  border: none;
 }
 
 .back-prj-btn:hover {
   cursor: pointer;
   background-color: hsl(176, 72%, 28%);
+}
+
+.back-prj-btn:disabled {
+  background-color: grey;
 }
 
 .bookmark-container {

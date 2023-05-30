@@ -4,6 +4,7 @@ export default function BackType(props){
         props.setSelectedOption(props.id)
         props.toggleModal()
     }
+    
     return (
         <div className={`back-type ${props.countLeft == 0 ? "disabled" : ""}`}>
           <div className='back-header'>
@@ -15,7 +16,13 @@ export default function BackType(props){
           </p>
           <div className='back-footer'>
           <div className='back-container'><h1 className='back-left'>{props.countLeft}</h1><p>left</p></div>
-            <button className='select-btn' onClick={handleClick} disabled={props.countLeft == 0}>{props.countLeft > 0 ? "Select Reward" : "Out Of Stock" }</button>
+            <button 
+                className='select-btn' 
+                onClick={handleClick} 
+                disabled={props.countLeft == 0 || props.backedAmount >= 100000}
+            >
+                {props.countLeft > 0 ? "Select Reward" : "Out Of Stock" }
+            </button>
           </div>
         </div>
     )
