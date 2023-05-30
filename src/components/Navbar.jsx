@@ -8,8 +8,8 @@ export default function Navbar(){
     }
     return (
         <nav>
-            <img className="header-logo" src="/images/logo.svg"></img>
-            <img className='menu-btn' src={`/images/icon-${isOpen ? "close-menu" : "hamburger"}.svg`} onClick={toggleIsOpen}></img>
+            <img className="header-logo" src="/images/logo.svg" alt='Logo'></img>
+            <img className='menu-btn' src={`/images/icon-${isOpen ? "close-menu" : "hamburger"}.svg`} onClick={toggleIsOpen} alt='Menu Button'></img>
             <div className={`nav-items ${isOpen ? "opened" : ""}`}>
                 <a>About</a>
                 <div className='nav-divider'></div>

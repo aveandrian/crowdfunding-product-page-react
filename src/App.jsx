@@ -25,11 +25,9 @@ function App() {
   }
 
   function pledgeFunction(amount, id){
-    console.log("PLEDGECALLDE")
-    console.log(amount)
-    console.log(id)
     setBackedAmount(prev => prev+amount)
     setTotalBackers(prev => prev+1)
+    setIsModal(false)
     setIsSucess(true)
     setBackTypes(prevBackTypes => prevBackTypes.map(prevBackType => {
       return id == prevBackType.id ? {...prevBackType, countLeft: prevBackType.countLeft -1 } : prevBackType
@@ -68,7 +66,7 @@ function App() {
     <main>
       <section className='header-section'>
         <div className='intro-section'>
-          <img src='/images/logo-mastercraft.svg' className='intro-logo'></img>
+          <img src='/images/logo-mastercraft.svg' className='intro-logo' alt='Project Logo'></img>
           <h1 className='intro-title'>Mastercraft Bamboo Monitor Riser</h1>
           <p className='intro-description'>A beautiful & handcrafted monitor stand to reduce neck and eye strain.</p>
           <div className='intro-btns'>
@@ -125,6 +123,10 @@ function App() {
       pledgeFunction={pledgeFunction}
       />}
       {isSuccess && <SuccessModal onClick={restart}/>}
+      <footer className="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="https://github.com/aveandrian">aveandrian</a>.
+      </footer>
     </>
   )
 }

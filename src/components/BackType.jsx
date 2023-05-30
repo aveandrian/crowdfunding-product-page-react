@@ -5,7 +5,7 @@ export default function BackType(props){
         props.toggleModal()
     }
     return (
-        <div className='back-type'>
+        <div className={`back-type ${props.countLeft == 0 ? "disabled" : ""}`}>
           <div className='back-header'>
             <h1 className='back-title'>{props.name}</h1>
             <h1 className='back-amount'>Pledge ${props.amount} or more</h1>
@@ -15,7 +15,7 @@ export default function BackType(props){
           </p>
           <div className='back-footer'>
           <div className='back-container'><h1 className='back-left'>{props.countLeft}</h1><p>left</p></div>
-            <button className='select-btn' onClick={handleClick}>{props.countLeft > 0 ? "Select Reward" : "Out Of Stock" }</button>
+            <button className='select-btn' onClick={handleClick} disabled={props.countLeft == 0}>{props.countLeft > 0 ? "Select Reward" : "Out Of Stock" }</button>
           </div>
         </div>
     )
